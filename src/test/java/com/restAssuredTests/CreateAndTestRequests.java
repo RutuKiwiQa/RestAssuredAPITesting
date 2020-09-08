@@ -27,7 +27,7 @@ public class CreateAndTestRequests {
                         .body("data.avatar[0]",equalTo("https://s3.amazonaws.com/uifaces/faces/twitter/follettkyle/128.jpg"))
                    //To check firstnames of all
                         .body("data.first_name",hasItems("Michael","Lindsay","Tobias","Byron","George","Rachel"))
-                     //   .body()
+                        .body("data.first_name",hasItems("Michael","Lindsay","Tobias","Byron","George","Rachel"))
 
                     .log().all(); //it will print all the logs into console.
     }
