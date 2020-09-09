@@ -10,6 +10,8 @@ public class CreateAndTestRequests {
     @Test
     public void TestCase_01(){
                 given()
+                        //we can also get header information
+                        .header("Content-Type","application/json")
                     .get("https://reqres.in/api/users?page=2")
                 .then()
                     .statusCode(200) // it will pass code
@@ -27,7 +29,8 @@ public class CreateAndTestRequests {
                         .body("data.avatar[0]",equalTo("https://s3.amazonaws.com/uifaces/faces/twitter/follettkyle/128.jpg"))
                    //To check firstnames of all
                         .body("data.first_name",hasItems("Michael","Lindsay","Tobias","Byron","George","Rachel"))
-                        .body("data.first_name",hasItems("Michael","Lindsay","Tobias","Byron","George","Rachel"))
+                        //To check all the lastname
+                        .body("data.last_name",hasItems("Lawson","Ferguson","Funke","Fields","Edwards","Howell"))
 
                     .log().all(); //it will print all the logs into console.
     }
