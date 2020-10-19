@@ -8,50 +8,30 @@ import java.io.IOException;
 
 public class ExcelUtils {
 
-    public static void main(String[] args) {
-        getRowCount();
-        getCellData();
-    }
+    static XSSFWorkbook workbook;
+    static XSSFSheet sheet;
 
-    public static void getCellData(){
+    public ExcelUtils(String excelPath, String sheetName) throws IOException {
         try {
-
-            String excelPath = "./data/TestData.xlsx";
-            XSSFWorkbook workbook = new XSSFWorkbook(excelPath);
-            XSSFSheet sheet = workbook.getSheet("Sheet1");
-
-
-            DataFormatter formatter = new DataFormatter();
-            Object value = formatter.formatCellValue(sheet.getRow(1).getCell(1));
-
-          //  Double value = sheet.getRow(1).getCell(2).getNumericCellValue();
-            // String value = sheet.getRow(1).getCell(0).getStringCellValue();
-            System.out.println("Cell Data : " + value);
-
+            workbook = new XSSFWorkbook(excelPath);
+            sheet = workbook.getSheet(sheetName);
         }catch (Exception e){
             System.out.println(e.getMessage());
             System.out.println(e.getCause());
             e.printStackTrace();
         }
+    }
+
+    public static void getCellData(int rowNum, int colNum){
+            DataFormatter formatter = new DataFormatter();
+            Object value = formatter.formatCellValue(sheet.getRow(rowNum).getCell(colNum));
+            System.out.println("Cell Data : " + value);
     }
 
     public static void getRowCount()  {
-        try {
           //  String projDir = System.getProperty("user.dir"); //project's directory
             //System.out.println(projDir);
-
-            //String excelPath = projDir + "/data/TestData.xlsx"; //relative path of excel
-            String excelPath = "./data/TestData.xlsx";
-            XSSFWorkbook workbook = new XSSFWorkbook(excelPath);
-            XSSFSheet sheet = workbook.getSheet("Sheet1");
-
             int rowCount = sheet.getPhysicalNumberOfRows();
             System.out.println("No of Rows : " + rowCount);
-        }catch (Exception e){
-            System.out.println(e.getMessage());
-            System.out.println(e.getCause());
-            e.printStackTrace();
-        }
-
     }
 }

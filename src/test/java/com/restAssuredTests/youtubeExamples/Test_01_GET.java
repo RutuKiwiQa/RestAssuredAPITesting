@@ -1,4 +1,4 @@
-package com.restAssuredTests;
+package com.restAssuredTests.youtubeExamples;
 
 import io.restassured.RestAssured;
 import io.restassured.response.Response;
@@ -19,6 +19,6 @@ public class Test_01_GET {
 
         //To use asserts
         int statusCode = response.getStatusCode();
-        Assert.assertEquals(statusCode,201);
+        Assert.assertEquals(statusCode,200);
     }
 }

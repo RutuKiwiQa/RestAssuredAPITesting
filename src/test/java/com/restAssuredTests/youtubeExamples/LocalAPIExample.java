@@ -1,4 +1,4 @@
-package com.restAssuredTests;
+package com.restAssuredTests.youtubeExamples;
 
 import io.restassured.http.ContentType;
 import org.json.simple.JSONObject;

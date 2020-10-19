@@ -1,4 +1,4 @@
-package com.restAssuredTests;
+package com.restAssuredTests.youtubeExamples;
 
 import org.testng.annotations.Test;
 import static io.restassured.RestAssured.*;

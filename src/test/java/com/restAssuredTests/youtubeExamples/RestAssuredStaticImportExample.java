@@ -1,4 +1,4 @@
-package com.restAssuredTests;
+package com.restAssuredTests.youtubeExamples;
 
 import static io.restassured.RestAssured.*;
 import io.restassured.response.Response;
